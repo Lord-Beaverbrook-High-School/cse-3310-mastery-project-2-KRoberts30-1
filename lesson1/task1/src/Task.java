@@ -1,15 +1,14 @@
-import java.util.Scanner;
 public class Task {
     public static void main(String[] args) {
-        //sets the number both methods are converting
-        int num = (int)Math.round(Math.random()*99);
+        //sets the number both methods are converting from 0 to 100.
+        int num = (int)Math.round(Math.random()*100);
         String binary = "";
         int i = 0;
         int ans = 0;
         System.out.println("Decimal (" + num + ") to Binary Conversion:");
         binary = methodTwo(num, binary);
         //removes the brackets and commas from the arraylist when printing, and sets the result to a single int.
-        int binNumber = Integer.valueOf(binary);
+        int binNumber = Integer.parseInt(binary);
         System.out.println(binNumber);
         System.out.println("Binary (" + binNumber + ") to Decimal Conversion:");
         int decNumber = methodOne(binNumber, i, ans);
@@ -42,7 +41,7 @@ public class Task {
         }
         else {
             //adds binary number to existing string in the right order
-            bin = String.valueOf(num%2) + bin;
+            bin = (num%2) + bin;
             //divides number before running through the method again, adding binary numbers to string until the number = 0
             return methodTwo(num/2, bin);
         }
